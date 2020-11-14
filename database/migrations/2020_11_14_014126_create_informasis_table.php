@@ -19,10 +19,10 @@ class CreateInformasisTable extends Migration
             $table->string('informasi_judul');
             $table->string('informasi_isi');
             $table->string('informasi_jenis');
-            $table->unsignedBigInteger('hrd_id');
-            $table->foreign('hrd_id')->references('id')->on('hrds')->onDelete('cascade');
-            $table->unsignedBigInteger('daftar_id');
-            $table->foreign('daftar_id')->references('id')->on('daftars')->onDelete('cascade');
+            $table->unsignedInteger('hrd_id');
+            $table->foreign('hrd_id')->references('hrd_id')->on('hrds')->onDelete('cascade');
+            $table->unsignedInteger('pelamar_id');
+            $table->foreign('pelamar_id')->references('pelamar_id')->on('pelamars')->onDelete('cascade');
         });
     }
 

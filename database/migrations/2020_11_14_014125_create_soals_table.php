@@ -15,12 +15,12 @@ class CreateSoalsTable extends Migration
     {
         Schema::create('soals', function (Blueprint $table) {
             $table->increments('soal_id');
-            $table->unsignedBigInteger('detail_soal_id');
-            $table->foreign('detail_soal_id')->references('id')->on('detail_soals')->onDelete('cascade');
+            $table->unsignedInteger('detail_soal_id');
+            $table->foreign('detail_soal_id')->references('detail_soal_id')->on('detail_soals')->onDelete('cascade');
             $table->string('soal_nama');
             $table->string('soal_kondisi');
-            $table->unsignedBigInteger('hrd_id');
-            $table->foreign('hrd_id')->references('id')->on('hrds')->onDelete('cascade');
+            $table->unsignedInteger('hrd_id');
+            $table->foreign('hrd_id')->references('hrd_id')->on('hrds')->onDelete('cascade');
         });
     }
 

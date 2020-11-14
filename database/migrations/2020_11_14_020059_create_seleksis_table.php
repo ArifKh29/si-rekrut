@@ -16,15 +16,15 @@ class CreateSeleksisTable extends Migration
         Schema::create('seleksis', function (Blueprint $table) {
             $table->increments('seleksi_id');
             $table->date('seleksi_tanggal');
-            $table->unsignedBigInteger('pelamar_id');
-            $table->foreign('pelamars_id')->references('id')->on('pelamars')->onDelete('cascade');
-            $table->unsignedBigInteger('soal_id');
-            $table->foreign('soal_id')->references('id')->on('soals')->onDelete('cascade');
-            $table->unsignedBigInteger('detail_seleksi_id');
-            $table->foreign('detail_seleksi_id')->references('id')->on('detail_seleksis')->onDelete('cascade');
+            $table->unsignedInteger('pelamar_id');
+            $table->foreign('pelamar_id')->references('pelamar_id')->on('pelamars')->onDelete('cascade');
+            $table->unsignedInteger('soal_id');
+            $table->foreign('soal_id')->references('soal_id')->on('soals')->onDelete('cascade');
+            $table->unsignedInteger('detail_seleksi_id');
+            $table->foreign('detail_seleksi_id')->references('detail_seleksi_id')->on('detail_seleksis')->onDelete('cascade');
             $table->integer('seleksi_total_nilai');
-            $table->unsignedBigInteger('informasi_id');
-            $table->foreign('informasi_id')->references('id')->on('informasis')->onDelete('cascade');
+            $table->unsignedInteger('informasi_id');
+            $table->foreign('informasi_id')->references('informasi_id')->on('informasis')->onDelete('cascade');
         });
     }
 
